@@ -1,0 +1,64 @@
+# Red Coin Automation Script
+
+[🔗 Start using Red Coin Automation here!](https://t.me/RedXiobot/Red?startapp=wjKKp4a3VRra)
+
+This script is designed to interact with the backend services of **Red Coin**. It handles various tasks such as farming, claiming tasks, and sending ads requests using the provided **GraphQL API**.
+
+## Features
+- **Query Handling**: Reads multiple query IDs from a file.
+- **GraphQL Request**: Sends requests to initialize games and fetch user details.
+- **Task Management**: Retrieves available tasks and claims rewards for specific tasks.
+- **Ads Interaction**: Makes API requests for AdsGram and tracks success.
+- **Farming Automation**: Automates farming with token-based sessions.
+
+## How It Works
+1. **Read Input**: Reads query IDs from a file (`datas.txt`).
+2. **Game Initialization**: Uses the `initGame` mutation to start sessions and retrieve user information, including tokens.
+3. **Task Automation**:
+    - Fetches a list of tasks using the `loadTasks` mutation.
+    - Automates claiming rewards for completed tasks.
+4. **Ads Handling**: Makes AdsGram API calls and handles rate limits or errors gracefully.
+5. **Farming**: Automates farming activities for Red Coin.
+
+## Setup
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/zcsaqueeb/red-coin-automation.git
+   ```
+2. Install required Python libraries (if not already installed):
+   ```bash
+   pip install requests
+   ```
+3. Create a `datas.txt` file containing query IDs, one per line.
+
+## Usage
+Run the script in your terminal:
+```bash
+python main.py
+```
+
+## Functions Overview
+### `read_query_ids(filename)`
+Reads query IDs from a text file.
+
+### `send_graphql_request(query_id)`
+Initializes a game session and retrieves user details using the **GraphQL API**.
+
+### `send_adsgram_request(telegram_id)`
+Sends AdsGram API requests to interact with advertisements.
+
+### `start_farming(token)`
+Starts farming activities for a session associated with a user token.
+
+### `get_tasks()`
+Fetches a list of available tasks from the server.
+
+### `claim_task(telegram_id, task_id)`
+Claims rewards for a specific task associated with a Telegram ID.
+
+## Notes
+- The `headers` and `URLs` are tailored for the **Red Coin** backend and web service interactions.
+- Make sure to handle tokens and sensitive information securely.
+
+## Disclaimer
+This script is provided for educational purposes only. Use it responsibly and ensure compliance with the terms of service of the platform.
